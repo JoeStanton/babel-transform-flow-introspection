@@ -10,6 +10,11 @@
   "license": "ISC",
   "dependencies": {
     "astify": "0.0.4",
-    "babel-core": "^6.17.0"
+    "babel-core": "^6.17.0",
+    "babel-literal-to-ast": "^0.1.2",
+    "babel-plugin-syntax-flow": "^6.13.0",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-register": "^6.16.3",
+    "babel-runtime": "^6.11.6"
   }
 }

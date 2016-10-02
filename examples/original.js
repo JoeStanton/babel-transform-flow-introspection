@@ -1,10 +1,13 @@
 type Props = {
   label: string,
-  link: Url
+  link: Url,
+  offset: number,
 }
 
 type Url = string | null;
 
-export default MenuItem = ({label, link} : Props) => (
-  `<li href="${link}">${label}</li>`
+const MenuItem = ({label, link, offset} : Props) => (
+  `<li href="${link}" tabindex="${offset}">${label}</li>`
 );
+
+export default MenuItem;
