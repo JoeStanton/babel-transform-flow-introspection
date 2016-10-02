@@ -20,6 +20,7 @@ const genObject = function(def) {
     return acc;
   }, {});
 };
+
 const genString = () => "String";
 const genNum = () => 1;
 const genUnion = (def) => def.types.map(x => generatorFor(x.type)(x))[0]; // Take the 0th for now
@@ -47,6 +48,8 @@ const genGeneric = (def) => {
 const generators = {
   "ObjectTypeAnnotation": genObject,
   "GenericTypeAnnotation": genGeneric,
+  "AnyTypeAnnotation": genString,
+  "MixedTypeAnnotation": genString,
   "StringTypeAnnotation": genString,
   "StringLiteralTypeAnnotation": genLiteral,
   "NumberTypeAnnotation": genNum,
