@@ -53,10 +53,11 @@ const generators = {
   "MixedTypeAnnotation": genString,
   "StringTypeAnnotation": genString,
   "StringLiteralTypeAnnotation": genLiteral,
+  "NumericLiteralTypeAnnotation": genLiteral,
+  "NullLiteralTypeAnnotation": genLiteral,
   "NumberTypeAnnotation": genNum,
   "BooleanTypeAnnotation": genBool,
   "UnionTypeAnnotation": genUnion,
-  "NullLiteralTypeAnnotation": genNull,
   "VoidTypeAnnotation": genVoid,
   "Array": genArrayOf,
 }
@@ -73,3 +74,4 @@ function gen(type) {
 }
 
 console.log(JSON.stringify(gen(Exports.PropsType), null, 2));
+console.log(JSON.stringify(gen(Exports.CardType), null, 2));

@@ -17,8 +17,28 @@ type User = {
   profilePic: ProfilePic
 }
 
-const User = ({id, firstName, lastName} : Props) => (
+// Example function, for later use with autoTest
+
+export const genHTML = ({id, firstName, lastName} : Props) => (
   `<li href="/users/${id}">${firstName} ${lastName}</li>`
 );
 
-export default User;
+// Exmaples with Enums
+
+type Suit =
+  | "Diamonds"
+  | "Clubs"
+  | "Hearts"
+  | "Spades";
+
+type Rank =
+  | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+  | "Jack"
+  | "Queen"
+  | "King"
+  | "Ace";
+
+type Card = {
+  suit: Suit,
+  rank: Rank,
+}
