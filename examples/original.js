@@ -1,7 +1,11 @@
 type Props = {
+  links: Array<Link>
+}
+
+type Link = {
   label: string,
-  link: Url,
-  offset: number,
+  visible: bool,
+  url: Url
 }
 
 type Url = string | null;
