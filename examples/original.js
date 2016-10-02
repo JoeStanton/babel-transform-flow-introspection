@@ -1,17 +1,24 @@
 type Props = {
-  links: Array<Link>
+  users: Array<User>
 }
 
-type Link = {
-  label: string,
-  visible: bool,
-  url: Url
+type ProfilePic = {
+  url: string,
+  width: number,
+  height: number
 }
 
-type Url = string | null;
+type User = {
+  id: number,
+  firstName: string,
+  lastName: string,
+  role: "Administrator" | "Editor" | "Reader",
+  activated: bool,
+  profilePic: ProfilePic
+}
 
-const MenuItem = ({label, link, offset} : Props) => (
-  `<li href="${link}" tabindex="${offset}">${label}</li>`
+const User = ({id, firstName, lastName} : Props) => (
+  `<li href="/users/${id}">${firstName} ${lastName}</li>`
 );
 
-export default MenuItem;
+export default User;

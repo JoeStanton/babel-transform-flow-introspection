@@ -25,6 +25,7 @@ const genNum = () => 1;
 const genUnion = (def) => def.types.map(x => generatorFor(x.type)(x))[0]; // Take the 0th for now
 const genNull = () => null;
 const genBool = () => true;
+const genLiteral = (def) => def.value;
 const genArrayOf = (def) => {
   const typeParams = def.typeParameters && def.typeParameters.params && def.typeParameters.params.map(gen) || [];
   return typeParams;
@@ -47,6 +48,7 @@ const generators = {
   "ObjectTypeAnnotation": genObject,
   "GenericTypeAnnotation": genGeneric,
   "StringTypeAnnotation": genString,
+  "StringLiteralTypeAnnotation": genLiteral,
   "NumberTypeAnnotation": genNum,
   "BooleanTypeAnnotation": genBool,
   "UnionTypeAnnotation": genUnion,
@@ -65,4 +67,4 @@ function gen(type) {
   return generatorFor(type.type)(type);
 }
 
-console.log(JSON.stringify(genN(Exports.PropsType, 3), null, 2));
+console.log(JSON.stringify(gen(Exports.PropsType), null, 2));
