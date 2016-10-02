@@ -8,11 +8,14 @@ type ProfilePic = {
   height: number
 }
 
+type Role = "Administrator" | "Editor" | "Reader";
+type Administrator = "Administrator";
+
 type User = {
   id: number,
   firstName: string,
   lastName: string,
-  role: "Administrator" | "Editor" | "Reader",
+  role: Role,
   activated: bool,
   profilePic: ProfilePic
 }
