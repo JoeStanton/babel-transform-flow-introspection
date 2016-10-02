@@ -26,6 +26,7 @@ const genNum = () => 1;
 const genUnion = (def) => def.types.map(x => generatorFor(x.type)(x))[0]; // Take the 0th for now
 const genNull = () => null;
 const genBool = () => true;
+const genVoid = () => void 8;
 const genLiteral = (def) => def.value;
 const genArrayOf = (def) => {
   const typeParams = def.typeParameters && def.typeParameters.params && def.typeParameters.params.map(gen) || [];
@@ -56,6 +57,7 @@ const generators = {
   "BooleanTypeAnnotation": genBool,
   "UnionTypeAnnotation": genUnion,
   "NullLiteralTypeAnnotation": genNull,
+  "VoidTypeAnnotation": genVoid,
   "Array": genArrayOf,
 }
 
