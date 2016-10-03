@@ -15,7 +15,7 @@ const genObjectProp = function(def) {
   console.log(def.key.name);
 };
 const genObject = function(def) {
-  return def.properties.reduce((acc, prop) => {
+  return (def.properties || []).reduce((acc, prop) => {
     acc[prop.key.name] = gen(prop.value);
     return acc;
   }, {});
@@ -45,8 +45,10 @@ const genGeneric = (def) => {
 
   throw new Error("No type declaration found for " + def.id.name);
 };
+const genFunc = () => () => true;
 
 const generators = {
+  "Object": genObject,
   "ObjectTypeAnnotation": genObject,
   "GenericTypeAnnotation": genGeneric,
   "AnyTypeAnnotation": genString,
@@ -60,6 +62,8 @@ const generators = {
   "UnionTypeAnnotation": genUnion,
   "VoidTypeAnnotation": genVoid,
   "Array": genArrayOf,
+  "Function": genFunc,
+  "FunctionTypeAnnotation": genFunc,
 }
 
 const generatorFor = (type) => {
@@ -70,8 +74,12 @@ const generatorFor = (type) => {
 }
 
 function gen(type) {
+  if (!type) {
+    throw new Error("Invalid type " + type);
+  }
   return generatorFor(type.type)(type);
 }
 
+console.log(JSON.stringify(gen(Exports.LambdaContextType), null, 2));
 console.log(JSON.stringify(gen(Exports.PropsType), null, 2));
 console.log(JSON.stringify(gen(Exports.CardType), null, 2));
