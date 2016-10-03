@@ -1,0 +1,11 @@
+{
+  "name": "flow-runtime",
+  "version": "0.0.1",
+  "description": "Validation & Fixture Generation from Flow AST output",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joe Stanton",
+  "license": "ISC"
+}

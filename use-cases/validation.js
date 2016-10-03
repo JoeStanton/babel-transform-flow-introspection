@@ -1,7 +1,7 @@
 import * as Exports from "./types";
 
 import {setup} from "../flow-runtime/validation";
-const {validate} = setup(Exports);
+const {validate} = setup(Exports); // The validator must be able to recursively validate types
 
 console.log(validate("Diamond", Exports.SuitType));
 console.log(validate("Administrator", Exports.AdministratorType));
