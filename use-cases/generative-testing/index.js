@@ -45,7 +45,7 @@ const genGeneric = (def) => {
 
   throw new Error("No type declaration found for " + def.id.name);
 };
-const genFunc = () => () => true;
+const genFunc = (def) => () => gen(def.returnType);
 
 const generators = {
   "Object": genObject,
