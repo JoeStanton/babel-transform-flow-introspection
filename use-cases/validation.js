@@ -1,6 +1,6 @@
-import * as Exports from "../types";
+import * as Exports from "./types";
 
-import {setup} from "../../flow-runtime/validation";
+import {setup} from "../flow-runtime/validation";
 const {validate} = setup(Exports);
 
 console.log(validate("Diamond", Exports.SuitType));

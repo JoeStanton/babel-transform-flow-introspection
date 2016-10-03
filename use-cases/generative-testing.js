@@ -1,5 +1,5 @@
-import * as Exports from "../types";
-import {setup} from "../../flow-runtime/gen";
+import * as Exports from "./types";
+import {setup} from "../flow-runtime/gen";
 
 const {gen, genN} = setup(Exports);
 
