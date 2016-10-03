@@ -20,7 +20,6 @@ type User = {
   profilePic: ProfilePic
 }
 
-/* @flow */
 type Event = {
   authToken: string,
   body: Object,
@@ -47,11 +46,6 @@ type Message = {
   type: string,
   id: string
 }
-
-type Priority = "priority" | "normal" | "failed";
-
-type DynamoTable = "orders" | "addresses" | "customers" | "products" | "users" | "sessions" | "activity" | "lock";
-type MessageType = "order" | "address" | "customer" | "product" | "user" | "session" | "activity" | "lock";
 
 type WorkflowRule = {
   key: string,
