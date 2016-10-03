@@ -72,7 +72,7 @@ const validate = (value, type) => {
   });
 }
 
-console.log(validate("Diamonds", Exports.SuitType));
+console.log(validate("Diamond", Exports.SuitType));
 console.log(validate("Administrator", Exports.AdministratorType));
 console.log(validate({
   "users": [
